@@ -12,3 +12,5 @@ For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less
 -   sumOddFibonacciNums(10) should return 10
 -   sumOddFibonacciNums(1000) should return 1785
 -   sumOddFibonacciNums(4000000) should return 4613732
+
+ref: [cn site](http://www.cnblogs.com/panlq/p/9307203.html)
