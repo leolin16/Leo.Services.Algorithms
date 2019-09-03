@@ -1,11 +1,16 @@
 # Machine Learning
 
+## problmem solving techniques
+
+1. rule-based
+2. machine-learning: pick problem -> represent data -> apply an algorithm -> 
+
 ## types of ML
 
-1. Classification
-2. Regression
-3. Clustering
-4. Dimensionality reduction
+1. Classification: sentiment analysis, spam detection, trading strategy
+2. Regression: sales forecasting, predicting a value of a stock market
+3. Clustering: recommendations
+4. Recommendations: Dimensionality reduction
 
 ## Traditional ML Models
 
@@ -37,8 +42,9 @@ structured data such as numbers and probabilities
 ### Clustering models
 
    1. K-means
-   2. DBSCAN
-   3. Spectral clustering
+   2. Hierarchical clustering
+   3. DBSCAN
+   4. Spectral clustering
 
 ## Representation ML Models
 
