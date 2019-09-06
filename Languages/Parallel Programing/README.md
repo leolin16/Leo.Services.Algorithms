@@ -1,5 +1,12 @@
 # Parallel Processing
 
+Best suited for CPU intensive tasks like:
+
+- String operations
+- Search algorithms
+- Graphics processing
+- Number crunching algorithms
+
 ## Models
 
 1. Flynn's Taxonomy
