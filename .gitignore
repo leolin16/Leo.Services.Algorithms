@@ -2,3 +2,10 @@ obj/
 # .vscode/
 bin/
 node_modules/
+*.log
+.vscode
+.cache
+__pycache__
+incoming
+outgoing
+staging
