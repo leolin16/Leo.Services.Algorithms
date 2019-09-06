@@ -17,19 +17,26 @@ class ThumbnailMakerService(object):
         self.home_dir = home_dir
         self.input_dir = self.home_dir + os.path.sep + 'incoming'
         self.output_dir = self.home_dir + os.path.sep + 'outgoing'
+        self.downloaded_bytes = 0
+        self.dl_lock = threading.Lock()
 
     def download_image(self, url):
-        # download each image and save to the input dir 
+        # download each image and save to the input dir
         logging.info("downloading image at URL " + url)
         img_filename = urlparse(url).path.split('/')[-1]
-        urlretrieve(url, self.input_dir + os.path.sep + img_filename)
-        logging.info("image saved to " + self.input_dir + os.path.sep + img_filename)
+        dest_path = self.input_dir + os.path.sep + img_filename
+        urlretrieve(url, dest_path)
+        img_size = os.path.getsize(dest_path)
+        with self.dl_lock:
+            self.downloaded_bytes += img_size
+        logging.info("image [{} bytes] saved to {}".format(img_size, dest_path))
+
     def download_images(self, img_url_list):
         # validate inputs
         if not img_url_list:
             return
         os.makedirs(self.input_dir, exist_ok=True)
-        
+
         logging.info("beginning image downloads")
 
         start = time.perf_counter()
@@ -64,8 +71,8 @@ class ThumbnailMakerService(object):
                 hsize = int((float(img.size[1]) * float(wpercent)))
                 # perform resizing
                 img = img.resize((basewidth, hsize), PIL.Image.LANCZOS)
-                
-                # save the resized image to the output dir with a modified file name 
+
+                # save the resized image to the output dir with a modified file name
                 new_filename = os.path.splitext(filename)[0] + \
                     '_' + str(basewidth) + os.path.splitext(filename)[1]
                 img.save(self.output_dir + os.path.sep + new_filename)

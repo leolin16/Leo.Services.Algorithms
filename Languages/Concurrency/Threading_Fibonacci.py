@@ -1,8 +1,9 @@
 import threading
 
+# failed, need refactoring
 class FibonacciThread(threading.Thread):
     def __init__(self, num):
-        super.__init__(self)
+        super().__init__()
         self.num = num
 
     def run(self):
@@ -13,7 +14,7 @@ class FibonacciThread(threading.Thread):
             fib[i] = fib[i-1] + fib[i-2]
             print(fib[self.num])
 
-    
+
 myFibTask1 = FibonacciThread(9)
 myFibTask2 = FibonacciThread(12)
 

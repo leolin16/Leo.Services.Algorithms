@@ -43,3 +43,12 @@ New -> (Start) -> Runnable[Ready <-> Running] -> (waiting) -> Blocked -> (resume
 
 if a newly-selected thread is from a different process, a full process switch occurs,
 if a newly-selected thread is from the same process, a thread switch occurs
+
+#### Lock
+
+to create the lock:
+> lock =threading.Lock()
+
+to acquire/release the lock safely
+1. use try...finally
+2. with lock: ...
