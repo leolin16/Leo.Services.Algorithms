@@ -52,3 +52,15 @@ to create the lock:
 to acquire/release the lock safely
 1. use try...finally
 2. with lock: ...
+3. non blocking lock: if some_lock.acquire(blocking=False): ... else: ... or if some_lock.locked(): ... else: ...
+4. semaphore = threading.Semaphore(num_permits) -> semaphore.acquire() -> ... -> semaphore.release() : intermal counter decrements until 0 and then any acquire will become blocked until some other threads release the lock at least once to increment the internal account to be above 0, it's like a lock pool with locks permit, default permit is 1
+5. semaphore = threading.BoundedSemaphore(num_permits) not permit for more release than acquire(error thrown), while standard semaphore allows unlimited release
+6. threading.Event()
+7. threading.Condition -> wait()/notify()/notify_all() -> good for producer-consumer pattern
+
+### Queue: better over condition/event
+
+1. put()
+2. get()
+3. task_done()
+4. join()
