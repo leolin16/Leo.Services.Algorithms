@@ -10,7 +10,7 @@
 
 ## Category
 
-### Threading
+### Threading - only good for IO bound operations, due to GIL in python
 
 1. > import threading
 2. > def do_some_work(val):
@@ -64,3 +64,38 @@ to acquire/release the lock safely
 2. get()
 3. task_done()
 4. join()
+
+### Process - one GIL for every process, from python v3.8, multiple GIL for every process(one for each interpreter)
+
+interuptable(puased) and killable(terminated) via OS APIs
+an error in a process can not bring down another process - more resilient than threads
+invaluable for CPU-intensive workloads
+
+for multiprocessing, `if __name__ == '__main__':` is required, coz new process will execute both declarative code during import stage and functions during run stage, thus without __main__, section for creating new process will recursively run
+
+class multiprocessing.Process(group=None,
+                       target=None,
+                       name=None,
+                       args=(),
+                       kwargs={},
+                       daemon=None)
+
+a daemon process is a child process that doesn't prevent its parent process from exiting, and it will live on its own lifecycle, 
+a daemon process is not allowed to create its own child process
+
+#### termination
+
+1. is_alive() -> also exists for thread
+2. terminate() -> suitable for processes not using any shared resources, finally clauses and exit handlers will not be run after forcibly killed by terminate()
+3. exitcode -> 0: no error, >0: error code, <0: -1 signal * error code
+
+#### process pool
+
+class multiprocessing.Pool([num_processes
+                            [, initializer
+                            [, initargs <- can be non-picklable
+                            [, maxtasksperchild ]]]]) <- periodically releasing process already run a certain amount of tasks
+
+#### patterns
+
+map(vunc, iterable[, chunksize])
