@@ -80,7 +80,7 @@ class multiprocessing.Process(group=None,
                        kwargs={},
                        daemon=None)
 
-a daemon process is a child process that doesn't prevent its parent process from exiting, and it will live on its own lifecycle, 
+a daemon process is a child process that doesn't prevent its parent process from exiting, and it will live on its own lifecycle,
 a daemon process is not allowed to create its own child process
 
 #### termination
@@ -96,6 +96,9 @@ class multiprocessing.Pool([num_processes
                             [, initargs <- can be non-picklable
                             [, maxtasksperchild ]]]]) <- periodically releasing process already run a certain amount of tasks
 
-#### patterns
+#### pool patterns
 
-map(vunc, iterable[, chunksize])
+map(func, iterable[, chunksize])
+map_async(func, iterable[, chunksize[, callback]]) -> AsyncResult.get([timeout])
+apply -> on one of the worker of the process pool
+apply_async

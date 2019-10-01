@@ -1,9 +1,9 @@
 obj/
-# .vscode/
 bin/
 node_modules/
 *.log
 .vscode
+.vs
 .cache
 __pycache__
 incoming
