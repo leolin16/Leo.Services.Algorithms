@@ -1,7 +1,9 @@
 # from thumbnail_maker import ThumbnailMakerService
 # from thumbnail_maker_concurrent_semaphore import ThumbnailMakerService
 # from thumbnail_maker_thread_queue import ThumbnailMakerService
-from thumbnail_maker_multiprocessing_pool import ThumbnailMakerService
+# from thumbnail_maker_multiprocessing_pool import ThumbnailMakerService
+# from thumbnail_maker_multiprocessing_queue import ThumbnailMakerService
+from thumbnail_maker_multiprocessing_async import ThumbnailMakerService
 
 IMG_URLS = \
     ['https://dl.dropboxusercontent.com/s/2fu69d8lfesbhru/pexels-photo-48603.jpeg',
