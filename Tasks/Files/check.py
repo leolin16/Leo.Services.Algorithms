@@ -4,10 +4,10 @@ import os
 os.chdir('/Users/leolin/Projects/Leo.Services.Algorithms')
 currentFolder = os.getcwd()
 tempFilePath = os.path.join(currentFolder, 'README.md')
-print(os.path.getsize(tempFilePath))
+print("file size: ", os.path.getsize(tempFilePath))
 
 # get sub files/folders list within a folder
-print(os.listdir(currentFolder))
+print("file list :", os.listdir(currentFolder))
 
 # check if some path exists or not
 print(os.path.exists(currentFolder))

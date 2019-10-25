@@ -1,2 +1,4 @@
-int someInteger = 12345;
-someInteger
+// int someInteger = 12345;
+
+// someInteger
+
