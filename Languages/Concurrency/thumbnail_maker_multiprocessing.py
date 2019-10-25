@@ -13,7 +13,7 @@ import PIL
 from PIL import Image
 
 FORMAT = "[%(threadName)s, %(asctime)s, %(levelname)s] %(message)s"
-logging.basicConfig(filename='logfile_queue.log', level=logging.DEBUG, format=FORMAT)
+logging.basicConfig(filename='logfile_multiprocessing.log', level=logging.DEBUG, format=FORMAT)
 
 class ThumbnailMakerService(object):
     def __init__(self, home_dir='.'):
@@ -22,12 +22,10 @@ class ThumbnailMakerService(object):
         self.output_dir = self.home_dir + os.path.sep + 'outgoing'
         # self.img_queue = Queue()
         self.img_list = []
-        self.dl_lock = threading.Lock()
-        self.ic_lock = threading.Lock()
         self.downloaded_bytes = 0
-        self.img_count = 0
+        # self.img_count = 0
 
-    def download_image(self, dl_queue):
+    def download_image(self, dl_queue, dl_lock):
         # download each image and save to the input dir
         while not dl_queue.empty():
             try:
@@ -37,7 +35,7 @@ class ThumbnailMakerService(object):
                 dest_path = self.input_dir + os.path.sep + img_filename
                 urlretrieve(url, dest_path)
                 img_size = os.path.getsize(dest_path)
-                with self.dl_lock:
+                with dl_lock:
                     self.downloaded_bytes += img_size
                 logging.info("image [{} bytes] saved to {}".format(img_size, dest_path))
 
@@ -103,8 +101,8 @@ class ThumbnailMakerService(object):
             img.save(self.output_dir + os.path.sep + new_filename)
 
         os.remove(self.input_dir + os.path.sep + filename)
-        with self.ic_lock:
-            self.img_count += 1
+        # with ic_lock:
+        #     self.img_count += 1
         logging.info("done resizing image {}".format(filename))
 
     def make_thumbnails(self, img_url_list):
@@ -112,6 +110,9 @@ class ThumbnailMakerService(object):
         pool = multiprocessing.Pool()
         start = time.perf_counter()
         dl_queue = Queue()
+        
+        dl_lock = threading.Lock()
+        # ic_lock = threading.Lock()
 
         # download images
         for img_url in img_url_list:
@@ -119,7 +120,7 @@ class ThumbnailMakerService(object):
 
         num_dl_threads = 4
         for _ in range(num_dl_threads):
-            t = Thread(target=self.download_image, args=(dl_queue,))
+            t = Thread(target=self.download_image, args=(dl_queue, dl_lock))
             t.start() # no need to join this, coz when t2 is done, then we're done. and t2 is always after this t
         # resize images
         # t2 = Thread(target=self.perform_resizing)
