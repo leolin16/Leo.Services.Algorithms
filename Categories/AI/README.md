@@ -64,7 +64,7 @@ unstructured data such as images and movies
 
 #### supervised and unsupervised
 
-##### supervised
+##### supervised - learn the relation between ...
 
     got feature vector(x variables) and labels(y variables)
     seek the function f that links the features and labels
