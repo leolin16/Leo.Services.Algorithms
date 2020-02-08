@@ -1,5 +1,11 @@
 # Typescript
 
+## benefits
+
+1. static types (variables, parameters, return types, etc.)
+2. organization (classes, namespaces, modules, interfaces)
+3. Tooling (static type analysis, instant errors, detect unused data/unreachable code, source maps - debug directly in TypeScript, inspect external modules)
+
 ## Installation
 
 1. method1: www.typescriptlang.org
@@ -9,3 +15,5 @@
 ## Compile
 
 > tsc ???.ts
+
+##
