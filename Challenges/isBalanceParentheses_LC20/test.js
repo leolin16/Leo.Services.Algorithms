@@ -1,4 +1,4 @@
-const isValid = require("./index");
+const isValid = require("./balancedParentheses");
 
 test("'(', ')', '{', '}', '[', ']' should return false", () => {
   expect(isValid("(")).toEqual(false);

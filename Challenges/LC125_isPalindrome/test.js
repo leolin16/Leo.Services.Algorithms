@@ -1,4 +1,4 @@
-const isPalindrome = require("./index");
+const isPalindrome = require("./isPalindrome");
 
 test("'A man, a plan, a canal: Panama' returns true", () => {
   expect(isPalindrome("A man, a plan, a canal: Panama")).toEqual(true);

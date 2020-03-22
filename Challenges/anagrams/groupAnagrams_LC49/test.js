@@ -1,4 +1,4 @@
-const groupAnagrams = require("./index");
+const groupAnagrams = require("./groupAnagrams");
 
 test("['eat', 'tea', 'tan', 'ate', 'nat', 'bat'] returns 3 groups of Anagrams", () => {
   let res = groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]).sort(

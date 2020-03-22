@@ -1,4 +1,4 @@
-const isAnagram = require("./index");
+const isAnagram = require("./isAnagram");
 
 test("isAnagram('anagram', 'nagaram') returns true", () => {
   expect(isAnagram("anagram", "nagaram")).toEqual(true);

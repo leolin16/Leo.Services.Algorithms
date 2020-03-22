@@ -1,4 +1,4 @@
-const longestPalindrome = require("./index");
+const longestPalindrome = require("./longestPalindrome");
 
 test("'cbbd' returns 'bb'", () => {
   expect(longestPalindrome("cbbd")).toEqual("bb");

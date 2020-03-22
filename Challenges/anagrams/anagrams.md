@@ -8,34 +8,31 @@
 2. "cinema" "iceman" -> True
 3. "bumblebee "icecream" -> False
 
+### GroupAnagrams
+
+1. Input ["eat","tea","tan","ate","nat","bat"]
+2. Output [["ate","eat","tea"],["nat","tan"],["bat"]]
+
 ## solution
 
 ### sorting
 
-#### time complexity
+1. time complexity
 
-O($nlogn$)
+    O($nlogn$) for comparing 2
+    O($n * mlogm$) for grouping anagrams
 
-#### code
-
-```python
-def is_anagram_nlogn(word1, word2):
-    return sorted(word1) == sorted(word2)
-```
 
 ### optimized
 
-#### time complexity
+needs hashmaps
 
-O(n)
+1. time complexity
 
-#### space complexity
+    O(n) for comparing 2
+    O(n * m) for grouping anagrams, needs prime factorizations for each letter
 
-O(n)
+2. space complexity
 
-#### code
+    O(n) for comparing 2
 
-```python
-def is_anagram(word1, word2):
-    return sorted(word1) == sorted(word2)
-```

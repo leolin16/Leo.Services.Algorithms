@@ -1,4 +1,4 @@
-const lengthOfLongestSubstring = require("./index");
+const lengthOfLongestSubstring = require("./longestNonRepeatingSubStr");
 
 test("'abcabcbb' returns 3", () => {
   expect(lengthOfLongestSubstring("abcabcbb")).toEqual(3);
