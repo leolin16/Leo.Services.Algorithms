@@ -8,3 +8,6 @@ Best suited for IO intensive tasks like:
 - Web Servie calls
 - Copying, downloading, uploading data
 
+## typescript
+
+https://github.com/johnpapa/typescript-async
