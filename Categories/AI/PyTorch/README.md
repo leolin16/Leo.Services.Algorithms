@@ -27,3 +27,21 @@ Deep learning framework for fast, flexible experimentation
 4. Deployment
 5. Prediction
 6. Managing Versions
+
+## Installation & Setup
+
+1. activate conda/python for certain shells
+   - > conda init bash/powershell/zsh/cmd.exe
+   - > python --version
+   - > jupyter --version
+   - > pip --version
+2. please refer to Leo.Cognizant.Test to see how to speed up downloading and package installing for pip install & conda install
+3. [install pytorch](https://pytorch.org/get-started/locally/)
+   - > conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
+4. install jupyter notebook and config
+   - > conda install jupyter notebook
+   - > jupyter-notebook --generate-config
+   - > jupyter notebook password
+   - > jupyter notebook --notebook-dir=/?? --no-browser --port=???? --ip=???.?.?.? --allow-root
+5. > conda install graphviz
+6. > pip install hiddenlayer

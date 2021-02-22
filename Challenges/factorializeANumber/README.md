@@ -3,7 +3,7 @@
 ### Check Out More Algorithms like this at <a href="https://www.FreeCodeCamp.com"> FreeCodeCamp</a>
 ---
 
-Return the factorial of the provided integer.
+## Return the factorial of the provided integer.
 
 If the integer is represented with the letter n, a factorial is the product of all positive integers less than or equal to n.
 
@@ -18,3 +18,7 @@ Remember to use Read-Search-Ask if you get stuck. Write your own code.
 **Example**
 -   factorializeANumber(5) returns 120;
 -   factorializeANumber(10) returns 3628800;
+
+## Return how many zeros ending of the provided integer.
+
+done in python
